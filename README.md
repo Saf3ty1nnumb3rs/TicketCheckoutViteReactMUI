@@ -7,6 +7,7 @@ Internationalization was set up using react-intl.
 Testing is set up and functional. From the root of the application enter `yarn jest` to run the test suite.
 
 The application is built around a central layout and utilizes a context based state management. You will see within the ProviderWrapper and the AppLayout a series of nested components and providers that wraps the core of the application and makes various state objects available throughout the application.
+The most complete form interactions can be found in the Add/Edit Payment method dialog seen on the checkout page. It is complete with validation and error messaging. You will not be able to submit your changes with invalid data (including expired card dates). Additionally, you may not submit your order until you have cart content, a selected payment method, and you have acknowledged TOS.
 
 Feel free to click around the app.
 
