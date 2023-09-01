@@ -3,8 +3,8 @@ import { Context, createContext, useContext } from 'react';
 
 export interface CartContextInterface {
   onCartChange: (action: CartAction, ticket: Ticket) => void;
-  cartContents: CartItem[]; // update this to cart contents
-  setCartContents: React.Dispatch<React.SetStateAction<CartItem[]>>; // update this to set cart contents
+  cartContents: CartItem[];
+  setCartContents: React.Dispatch<React.SetStateAction<CartItem[]>>;
   cartCount: number;
   setCartCount: React.Dispatch<React.SetStateAction<number>>
 }
