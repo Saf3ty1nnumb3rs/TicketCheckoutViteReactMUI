@@ -4,6 +4,7 @@ This application was made using vite, React, Material UI, with Typescript.
 Routing was implemented using React Router DOM.
 Forms were made with Formik. Validation with Yup.
 Internationalization was set up using react-intl.
+Testing is set up and functional. From the root of the application enter `yarn jest` to run the test suite.
 
 The application is built around a central layout and utilizes a context based state management. You will see within the ProviderWrapper and the AppLayout a series of nested components and providers that wraps the core of the application and makes various state objects available throughout the application.
 
