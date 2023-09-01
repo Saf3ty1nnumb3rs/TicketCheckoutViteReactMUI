@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { FormControlLabel, Checkbox, Dialog, DialogTitle, DialogContent, DialogActions, Button, Box } from '@mui/material';
 import { usePaymentContext } from 'Library/Contexts/Payment';
 import HoverButton from 'Library/Components/Buttons/HoverButton/HoverButton';
+import { FormattedMessage } from 'react-intl';
 
 export const  TermsCheckbox = () => {
   const { isTermsSelected, setIsTermsSelected } = usePaymentContext();
@@ -31,10 +32,10 @@ export const  TermsCheckbox = () => {
         label={
           <Box sx={{ display: 'flex', alignItems: 'center', flexWrap: "wrap" }}>
             <span style={{ display: 'flex', alignItems: 'center', whiteSpace: 'nowrap' }}>
-              I have read and agree to the
+              <FormattedMessage id="iHaveReadAndAgreeToThe" />
             </span>
             <HoverButton sx={{ height: '1.25rem', flexShrink: 0, pl: '0.3rem', py: 0 }} onClick={handleDialogOpen}>
-              Terms of Service
+              <FormattedMessage id="termsOfService" />
             </HoverButton>
           </Box>
         }
@@ -48,7 +49,7 @@ export const  TermsCheckbox = () => {
         </DialogContent>
         <DialogActions>
           <Button onClick={handleDialogClose} color="primary">
-            Close
+            <FormattedMessage id="close" />
           </Button>
         </DialogActions>
       </Dialog>

@@ -3,5 +3,5 @@ import Carlisle from './Carlisle.png';
 
 export {
   Brody,
-  Carlisle, // 159:280
+  Carlisle, // 159:280 ratio
 };

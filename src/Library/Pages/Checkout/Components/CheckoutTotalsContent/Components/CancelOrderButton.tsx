@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography } from '@mui/material';
 import HoverButton from 'Library/Components/Buttons/HoverButton/HoverButton';
-import { useIntl } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import { useCartContext } from 'Library/Contexts/Cart';
 
 export const CancelOrderButton = ({ handleCancelOrder }: { handleCancelOrder: () => void }) => {
@@ -24,6 +24,7 @@ export const CancelOrderButton = ({ handleCancelOrder }: { handleCancelOrder: ()
   return (
     <>
       <HoverButton
+        data-testid="cancel-order-button"
         color="info"
         disabled={!cartCount}
         onClick={handleClickOpen}
@@ -31,21 +32,26 @@ export const CancelOrderButton = ({ handleCancelOrder }: { handleCancelOrder: ()
       >
         {formatMessage({ id: 'cancelOrder' })}
       </HoverButton>
-      <Dialog open={open} onClose={handleClose}>
+      <Dialog
+        data-testid="cancel-order-dialog"
+        open={open}
+        onClose={handleClose}
+      >
         <DialogTitle>
-          Are you sure you want to cancel your order?
+          <FormattedMessage id="areYouSureYouWantToCancelYourOrder" />
         </DialogTitle>
         <DialogContent>
           <Typography variant="body2">
-            The items in your cart cannot be recovered.
+            <FormattedMessage id="theItemsInYourCartCannotBeRecovered" />
           </Typography>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose} color="primary">
-            No, go back
+          <Button
+          onClick={handleClose} color="primary">
+            <FormattedMessage id="noGoBack" />
           </Button>
           <Button onClick={handleCancel} color="secondary">
-            Yes, cancel
+            <FormattedMessage id="yesCancel" />
           </Button>
         </DialogActions>
       </Dialog>

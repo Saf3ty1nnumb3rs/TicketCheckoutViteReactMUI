@@ -19,7 +19,11 @@ export const CreditCardCard = ({
 }: CreditCardCardProps) => {
   const { selectedCard } = usePaymentContext();
   return (
-    <Card key={key} style={{ marginBottom: '15px' }}>
+    <Card
+      key={key}
+      style={{ marginBottom: '15px' }}
+      data-testid="credit-card-card"
+    >
       <CardContent>
         <FormControlLabel
           value={card.id}
@@ -44,10 +48,20 @@ export const CreditCardCard = ({
       </CardContent>
       <Divider />
       <CardActions>
-        <Button size="small" color="primary" onClick={() => handleEdit(card.id || '')}>
+        <Button
+          data-testid="card-edit-button"
+          size="small"
+          color="primary"
+          onClick={() => handleEdit(card.id || '')}
+        >
           <FormattedMessage id="edit" />
         </Button>
-        <Button size="small" color="secondary" onClick={() => handleDelete(card.id || '')}>
+        <Button
+          data-testid="card-delete-button"
+          size="small"
+          color="secondary"
+          onClick={() => handleDelete(card.id || '')}
+        >
           <FormattedMessage id="delete" />
         </Button>
       </CardActions>

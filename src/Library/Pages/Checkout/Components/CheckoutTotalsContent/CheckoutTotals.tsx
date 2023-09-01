@@ -1,4 +1,4 @@
-import { FormatNumberOptions, FormattedNumber, useIntl } from 'react-intl';
+import { FormatNumberOptions, FormattedMessage, FormattedNumber, useIntl } from 'react-intl';
 import { Box, Button, Stack, Typography } from '@mui/material';
 import { CheckCircleOutline } from '@mui/icons-material';
 import { useCallback, useEffect, useMemo, useState } from 'react';
@@ -120,7 +120,9 @@ export const CheckoutTotals = () => {
     >
       <Stack direction="row" alignItems="center" justifyContent="space-between">
         <Stack direction="row" alignItems="center">
-          <Typography fontSize="1.5rem" pr="0.5rem">{formatMessage({ id: 'total' })}</Typography>
+          <Typography fontSize="1.5rem" pr="0.5rem">
+            <FormattedMessage id="total" />
+          </Typography>
           <CheckCircleOutline color="success" sx={{ fontSize: '2rem' }} />
         </Stack>
         <Typography fontSize="1.5rem">
@@ -141,16 +143,16 @@ export const CheckoutTotals = () => {
       <TotalsSection header={formatMessage({ id: 'delivery' })}>
         <Stack direction="row"justifyContent="space-between">
           <Typography variant="body2">
-            {formatMessage({ id: 'mobileEntry' })}
+            <FormattedMessage id="mobileEntry" />
           </Typography>
           <Typography variant="body2">
-            {formatMessage({ id: 'free' })}
+            <FormattedMessage id="free" />
           </Typography>
         </Stack>
       </TotalsSection>
       <CancelOrderButton handleCancelOrder={handleCancelOrder} />
       <Typography variant="body1" fontWeight="bold" mb="0.75rem">
-        {formatMessage({ id: 'allSalesAreFinalNoRefunds' })}
+        <FormattedMessage id="allSalesAreFinalNoRefunds" />
       </Typography>
       <TermsCheckbox />
       <Button
@@ -166,10 +168,10 @@ export const CheckoutTotals = () => {
         }}
         disabled={!selectedCard || !cartContents.length || !isTermsSelected}
       >
-       {formatMessage({ id : 'placeOrder' })}
+        <FormattedMessage id="placeOrder" />
       </Button>
       <Typography fontSize="0.75rem" fontWeight="bold" mt="0.75rem">
-        {formatMessage({ id: 'exceptionsMayApplySeeOurTermsOfUse' })}
+        <FormattedMessage id="exceptionsMayApplySeeOurTermsOfUse" />
       </Typography>
     </Box>
   );

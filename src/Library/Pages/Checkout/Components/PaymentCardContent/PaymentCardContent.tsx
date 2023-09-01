@@ -127,6 +127,7 @@ const PaymentCardContent = () => {
       </Box>
       <Divider />
       <Button
+        data-testid="add-card-button"
         variant="outlined"
         color="primary"
         onClick={handleOpenDialog}
@@ -143,8 +144,14 @@ const PaymentCardContent = () => {
         {formatMessage({ id: 'addPaymentMethod' })}
       </Button>
       <Divider />
-      <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>{formatMessage({ id: newCard.id ? 'editCard' : 'addNewCard' })}</DialogTitle>
+      <Dialog
+        data-testid="add-card-dialog"
+        open={openDialog}
+        onClose={handleCloseDialog}
+      >
+        <DialogTitle>
+          {formatMessage({ id: newCard.id ? 'editCard' : 'addNewCard' })}
+        </DialogTitle>
         <DialogContent
           sx={{
             width: '26.25rem',

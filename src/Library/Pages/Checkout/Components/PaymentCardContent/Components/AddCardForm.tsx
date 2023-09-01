@@ -12,9 +12,10 @@ export const AddCardForm = ({ handleCloseDialog, newCardId }: AddCardFormProps) 
   const { isSubmitting, isValid } = useFormikContext();
   const { formatMessage } = useIntl();
   return (
-    <Form>
+    <Form data-testid="add-card-form">
       <Box my="1rem">
         <Field
+          data-testid="card-name-input"
           name="cardName"
           type="text"
           as={TextField}
@@ -27,6 +28,7 @@ export const AddCardForm = ({ handleCloseDialog, newCardId }: AddCardFormProps) 
       </Box>
       <Box my="1rem">
         <Field
+          data-testid="last-4-input"
           name="last4"
           type="text"
           as={TextField}
@@ -39,6 +41,7 @@ export const AddCardForm = ({ handleCloseDialog, newCardId }: AddCardFormProps) 
       </Box>
       <Box my="1rem">
         <Field
+          data-testid="exp-input"
           name="exp"
           type="text"
           as={TextField}
@@ -50,10 +53,15 @@ export const AddCardForm = ({ handleCloseDialog, newCardId }: AddCardFormProps) 
         </Typography>
       </Box>
       <DialogActions>
-        <Button onClick={handleCloseDialog} color="primary">
+        <Button
+          data-testid="cancel-button"
+          onClick={handleCloseDialog}
+          color="primary"
+        >
           Cancel
         </Button>
         <BlueOutlineButton
+          data-testid="confirm-button"
           type="submit"
           disabled={isSubmitting || !isValid}
         >
