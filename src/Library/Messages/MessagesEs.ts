@@ -3,6 +3,7 @@ export const messagesEs = {
   appHasUpdatedTo_MODE_mode: 'App has updated to {mode} mode',
   _ARTIST_PRICE_QUANTITY: '{artist} Tickets: {price} x {quantity}',
   cancel: 'Cancel',
+  cancelOrder: 'Cancel Order',
   confirm: 'Confirm',
   copyright_YEAR_JoshSampleAllRightsReserved:
     '© {year} Josh Sample, All rights reserved',
@@ -28,6 +29,7 @@ export const messagesEs = {
   orderProcessingFee: 'Order Processing Fee',
   password: 'Password',
   payment: 'Payment',
+  placeOrder: 'Place Order',
   save: 'Save',
   selectedTickets: 'Selected Tickets',
   selectPaymentMethod: 'Select Payment Method',
@@ -39,6 +41,7 @@ export const messagesEs = {
   tickets: 'Tickets',
   total: 'Total',
   yes: 'Yes',
+  yourOrderHasBeenSubmittedSuccessfully: 'Your order has been submitted successfully',
 };
 export type MessageEsKey = keyof typeof messagesEs;
 // will require translation
