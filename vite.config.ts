@@ -1,8 +1,8 @@
-import { defineConfig } from 'vite'
-import react from '@vitejs/plugin-react'
+import { defineConfig } from 'vite';
+import react from '@vitejs/plugin-react';
 import checker from 'vite-plugin-checker'; // catches type errors in development - super useful
 import svgrPlugin from 'vite-plugin-svgr'; // allows us to import svg files as react components; very flexible
-import tsconfigPaths from 'vite-tsconfig-paths';
+import tsconfigPaths from 'vite-tsconfig-paths'; // brings TS's path aliasing into Vite's build and development process allowing for path config
 
 // https://vitejs.dev/config/
 

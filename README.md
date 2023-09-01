@@ -30,3 +30,5 @@ Feel free to click around the app.
 4. **Clone**: Now follow the cloning steps above to get this fork on your local machine.
 
 After this, you can make changes, push them back to your fork, and then make a pull request to the original repo if you'd like to contribute.
+
+PS: all of the socials in the footer are actually functional. Yay! Fun.
