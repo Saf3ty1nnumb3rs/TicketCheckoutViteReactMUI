@@ -7,10 +7,10 @@ import { useCartContext } from 'Library/Contexts/Cart';
 import { ValueLine } from './Components/ValueLine';
 import { calculateLineItemFees } from 'Library/Utils/fees/calculateLineItemFees';
 import { ORDER_PROCESSING_FEE } from 'Library/constants';
-import HoverButton from 'Library/Components/Buttons/HoverButton/HoverButton';
 import { usePaymentContext } from 'Library/Contexts/Payment';
 import { TermsCheckbox } from './Components/TOSCheckbox';
 import { useToast } from 'Library/Hooks/useToast/useToast';
+import { CancelOrderButton } from './Components/CancelOrderButton';
 
 const numberFormatOptions: FormatNumberOptions = {
   style: 'currency',
@@ -97,7 +97,7 @@ export const CheckoutTotals = () => {
     }
   }, [ticketLineItemTotals])
 
-  const cancelOrder = useCallback(() => {
+  const handleCancelOrder = useCallback(() => {
     setCartCount(0);
     setCartContents([]);
     addToast(
@@ -149,13 +149,7 @@ export const CheckoutTotals = () => {
           </Typography>
         </Stack>
       </TotalsSection>
-      <HoverButton // normally a cancel button would lead to a dialog, skipping that for now
-        color="info"
-        onClick={cancelOrder}
-        sx={{ pl: 0, mb: '1rem' }}
-      >
-        {formatMessage({ id: 'cancelOrder' })}
-      </HoverButton>
+      <CancelOrderButton handleCancelOrder={handleCancelOrder} />
       <Typography variant="body1" fontWeight="bold" mb="0.75rem">
         {formatMessage({ id: 'allSalesAreFinalNoRefunds' })}
       </Typography>
