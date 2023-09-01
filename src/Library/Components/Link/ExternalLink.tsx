@@ -1,5 +1,4 @@
 import { Link as MuiLink, LinkProps as MuiLinkProps } from '@mui/material';
-import { useIconColors } from 'Library/Utils/icons';
 
 /**
  * Use this component for linking to External page. If you need to take the user OUT of the app. Utilize this component.
