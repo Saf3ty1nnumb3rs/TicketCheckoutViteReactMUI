@@ -1,8 +1,7 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import checker from 'vite-plugin-checker';
-import envCompatible from 'vite-plugin-env-compatible';
-import svgrPlugin from 'vite-plugin-svgr';
+import checker from 'vite-plugin-checker'; // catches type errors in development - super useful
+import svgrPlugin from 'vite-plugin-svgr'; // allows us to import svg files as react components; very flexible
 import tsconfigPaths from 'vite-tsconfig-paths';
 
 // https://vitejs.dev/config/
@@ -12,16 +11,15 @@ export default defineConfig({
   plugins: [
     react(),
     tsconfigPaths(),
-    // envCompatible(),
-    // checker({
-    //   typescript: true,
-    // }),
-    // svgrPlugin({
-    //   svgrOptions: {
-    //     icon: true,
-    //     // ...svgr options (https://react-svgr.com/docs/options/)
-    //   },
-    // }),
+    checker({
+      typescript: true,
+    }),
+    svgrPlugin({
+      svgrOptions: {
+        icon: true,
+        // ...svgr options (https://react-svgr.com/docs/options/)
+      },
+    }),
   ],
   esbuild: {
     logOverride: { 'this-is-undefined-in-esm': 'silent' },
