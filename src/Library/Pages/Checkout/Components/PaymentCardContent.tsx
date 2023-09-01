@@ -22,37 +22,39 @@ import * as Yup from 'yup';
 import { usePaymentContext } from 'Library/Contexts/Payment';
 import { dayjs } from 'Library/Utils/dates';
 import { AddCardForm } from './AddCardForm';
+import { useToast } from 'Library/Hooks/useToast/useToast';
 
 const PaymentCardContent = () => {
   const { cards, setCards, selectedCard, setSelectedCard } = usePaymentContext();
   const [openDialog, setOpenDialog] = useState(false);
   const [newCard, setNewCard] = useState<Card>({ cardName: '', last4: '', exp: '' });
 
-// AddCardForm validation schema with Yup
-const CardSchema = Yup.object().shape({
-  cardName: Yup.string().required('Required').max(40, 'Must be 40 characters or less'),
-  last4: Yup.string()
-    .length(4, 'Must be 4 digits')
-    .required('Required'),
-  exp: Yup.string()
-    .matches(/(0[1-9]|1[0-2])\/\d{2}/, 'Invalid date format')
-    .max(5, 'Valid date format: MM/YY')
-    .test(
-      'is-future',
-      'The date has already passed',
-      (value) => {
-        if (!value) return false;
-  
-        // Parse the 'MM/YY' to 'YYYY-MM-DD' format to make it compatible with dayjs
-        const [month, year] = value.split('/');
-        const parsedDate = dayjs(`20${year}-${month}-01`);
-  
-        // Check if the date is in the past
-        return parsedDate.isAfter(dayjs());
-      }
-    )
-    .required('Required'),
-});
+  const { addToast } = useToast();
+  // AddCardForm validation schema with Yup
+  const CardSchema = Yup.object().shape({
+    cardName: Yup.string().required('Required').max(40, 'Must be 40 characters or less'),
+    last4: Yup.string()
+      .length(4, 'Must be 4 digits')
+      .required('Required'),
+    exp: Yup.string()
+      .matches(/(0[1-9]|1[0-2])\/\d{2}/, 'Invalid date format')
+      .max(5, 'Valid date format: MM/YY')
+      .test(
+        'is-future',
+        'The date has already passed',
+        (value) => {
+          if (!value) return false;
+    
+          // Parse the 'MM/YY' to 'YYYY-MM-DD' format to make it compatible with dayjs
+          const [month, year] = value.split('/');
+          const parsedDate = dayjs(`20${year}-${month}-01`);
+    
+          // Check if the date is in the past
+          return parsedDate.isAfter(dayjs());
+        }
+      )
+      .required('Required'),
+  });
 
   const handleCardSelection = (id: string) => {
     setSelectedCard(id);
@@ -70,6 +72,13 @@ const CardSchema = Yup.object().shape({
     const newCardId = (cards.length + 1).toString();
     cards.push({ ...values, id: newCardId });
     setNewCard({ cardName: '', last4: '', exp: '' });
+    addToast(
+      'Card added successfully',
+      {
+        variant: 'filled',
+        severity: 'success',
+      },
+    )
     handleCloseDialog();
   };
 
@@ -94,6 +103,13 @@ const CardSchema = Yup.object().shape({
       card.id === newCard.id ? { ...card, ...values } : card
     );
     setCards(updatedCards);
+    addToast(
+      'Card updated successfully',
+      {
+        variant: 'filled',
+        severity: 'info',
+      },
+    )
     handleCloseDialog();
   };
 

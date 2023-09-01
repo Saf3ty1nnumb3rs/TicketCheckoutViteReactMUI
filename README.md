@@ -1,27 +1,29 @@
-# React + TypeScript + Vite
+# Ticket Purchasing
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This application was made using vite, React, Material UI, with Typescript.
+This application was made using vite, React, Material UI, with Typescript.
+Routing was implemented using React Router DOM.
+Forms were made with Formik. Validation with Yup.
 
-Currently, two official plugins are available:
+The application is built around a central layout and utilizes a context based state management. You will see within the ProviderWrapper and the AppLayout a series of nested components and providers that wraps the core of the application and makes various state objects available throughout the application.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Feel free to click around the app.
+## Cloning the Repository
 
-## Expanding the ESLint configuration
+1. **Navigate to the Repo**: Open GitHub and go to the repository you want to clone.
+2. **Get URL**: Click the "Code" button, then copy the HTTPS URL.
+3. **Open Terminal**: Open your command line or terminal.
+4. **Navigate to Folder**: Use `cd your-folder-name` to navigate into the folder where you want the repo.
+5. **Clone**: Run `git clone https://github.com/Saf3ty1nnumb3rs/TicketCheckoutViteReactMUI.git`.
+6. **Enter Repo**: Type `cd TicketCheckoutViteReactMUI` to enter the repo directory.
+7. **Install Dependencies**: Run `npm install` or `yarn` (based on what you use) to install dependencies.
+8. **Run App**: Usually, `npm dev` or `yarn dev` will run the app.
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Forking the Repository
 
-- Configure the top-level `parserOptions` property like this:
+1. **Navigate to the Repo**: Open GitHub and go to the repository you want to fork.
+2. **Fork**: Click the "Fork" button at the top-right corner.
+3. **Your Fork**: You'll be redirected to your fork of the repository.
+4. **Clone**: Now follow the cloning steps above to get this fork on your local machine.
 
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+After this, you can make changes, push them back to your fork, and then make a pull request to the original repo if you'd like to contribute.

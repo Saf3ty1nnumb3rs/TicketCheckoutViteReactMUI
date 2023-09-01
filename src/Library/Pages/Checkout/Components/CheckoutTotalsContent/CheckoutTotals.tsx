@@ -10,6 +10,7 @@ import { ORDER_PROCESSING_FEE } from 'Library/constants';
 import HoverButton from 'Library/Components/Buttons/HoverButton/HoverButton';
 import { usePaymentContext } from 'Library/Contexts/Payment';
 import { TermsCheckbox } from './Components/TOSCheckbox';
+import { useToast } from 'Library/Hooks/useToast/useToast';
 
 const numberFormatOptions: FormatNumberOptions = {
   style: 'currency',
@@ -69,6 +70,7 @@ export const CheckoutTotals = () => {
   const { cartContents, setCartContents, setCartCount } = useCartContext();
   const { isTermsSelected, selectedCard } = usePaymentContext();
 
+  const { addToast } = useToast();
   const ticketLineItemTotals: TicketLineItem[] = useMemo(() => {
     const lineItems = cartContents.map((cartItem) => {
       const { ticket, quantity } = cartItem;
@@ -98,6 +100,13 @@ export const CheckoutTotals = () => {
   const cancelOrder = useCallback(() => {
     setCartCount(0);
     setCartContents([]);
+    addToast(
+      'Your shopping cart has been emptied',
+      {
+        variant: 'filled',
+        severity: 'error',
+      },
+    );
   }, [])
   return(
     <Box
@@ -155,6 +164,13 @@ export const CheckoutTotals = () => {
         variant="contained"
         color="success"
         sx={{ width: '100%', mt: '1rem' }}
+        onClick={
+          () => {
+            addToast('YOU DID IT!!!',{
+              variant: 'filled',
+              severity: 'success',
+            })
+        }}
         disabled={!selectedCard || !cartContents.length || !isTermsSelected}
       >
         Place Order{/* intl18n */}
