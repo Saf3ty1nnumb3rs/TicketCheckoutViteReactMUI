@@ -12,7 +12,7 @@ import { Suspense } from 'react';
 
 export const StandardRoutes = () => {
   // we can provide Lazy Loaded components here within the Suspense
-  // Global Error Boundary prevents catastrophic failures in the even something slips through th cracks
+  // Global Error Boundary prevents catastrophic failures in the event something slips through th cracks
   return (
     <GlobalErrorBoundary>
       <Suspense fallback={<div />}>

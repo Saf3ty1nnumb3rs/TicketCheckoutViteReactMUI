@@ -2,10 +2,12 @@ import { useState } from 'react';
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, Typography } from '@mui/material';
 import HoverButton from 'Library/Components/Buttons/HoverButton/HoverButton';
 import { useIntl } from 'react-intl';
+import { useCartContext } from 'Library/Contexts/Cart';
 
 export const CancelOrderButton = ({ handleCancelOrder }: { handleCancelOrder: () => void }) => {
   const [open, setOpen] = useState(false);
   const {formatMessage } = useIntl();
+  const { cartCount } = useCartContext();
   const handleClickOpen = () => {
     setOpen(true);
   };
@@ -23,6 +25,7 @@ export const CancelOrderButton = ({ handleCancelOrder }: { handleCancelOrder: ()
     <>
       <HoverButton
         color="info"
+        disabled={!cartCount}
         onClick={handleClickOpen}
         sx={{ pl: 0, mb: '1rem' }}
       >

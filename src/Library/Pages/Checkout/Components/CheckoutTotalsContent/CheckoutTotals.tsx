@@ -116,7 +116,6 @@ export const CheckoutTotals = () => {
         backgroundColor: 'transparent',
         padding: '1rem',
         my: '0.5rem',
-        // minHeight: '100%',
       }}
     >
       <Stack direction="row" alignItems="center" justifyContent="space-between">

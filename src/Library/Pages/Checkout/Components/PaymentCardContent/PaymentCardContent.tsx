@@ -1,13 +1,8 @@
 import AddIcon from '@mui/icons-material/Add';
 import CreditCardIcon from '@mui/icons-material/CreditCard';
 import {
-  Card,
-  CardContent,
   Typography,
-  CardActions,
   Button,
-  Radio,
-  FormControlLabel,
   Divider,
   Container,
   Dialog,
@@ -23,6 +18,7 @@ import { usePaymentContext } from 'Library/Contexts/Payment';
 import { dayjs } from 'Library/Utils/dates';
 import { AddCardForm } from './Components/AddCardForm';
 import { useToast } from 'Library/Hooks/useToast/useToast';
+import { CreditCardCard } from './Components/CreditCardCard';
 
 const PaymentCardContent = () => {
   const { cards, setCards, selectedCard, setSelectedCard } = usePaymentContext();
@@ -119,40 +115,14 @@ const PaymentCardContent = () => {
         <FormattedMessage id="selectPaymentMethod" />
       </Typography>
       <Box overflow="auto" maxHeight="29.5rem">
-        {cards.map((card) => (
-          <Card key={card.id} style={{ marginBottom: '15px' }}>
-            <CardContent>
-              <FormControlLabel
-                value={card.id}
-                control={
-                  <Radio
-                    checked={selectedCard === card.id}
-                    onChange={() => handleCardSelection(card.id || '')}
-                  />
-                }
-                label={
-                  <>
-                    <Typography variant="h6">
-                      {card.cardName} **** **** **** {card.last4}
-                    </Typography>
-                    <Typography color="textSecondary">
-                      <FormattedMessage id="expiry_EXPIRATION_" values={{ expiration: card.exp}} />
-                    </Typography>
-                  </>
-                }
-                labelPlacement="end"
-              />
-            </CardContent>
-            <Divider />
-            <CardActions>
-              <Button size="small" color="primary" onClick={() => handleEdit(card.id || '')}>
-                {formatMessage({ id: 'edit' })}
-              </Button>
-              <Button size="small" color="secondary" onClick={() => handleDelete(card.id || '')}>
-              {formatMessage({ id: 'delete' })}
-              </Button>
-            </CardActions>
-          </Card>
+        {cards.map((card, i) => (
+          <CreditCardCard
+            key={card.id || `card${i}`}
+            card={card}
+            handleCardSelection={handleCardSelection}
+            handleEdit={handleEdit}
+            handleDelete={handleDelete}
+          />
         ))}
       </Box>
       <Divider />
