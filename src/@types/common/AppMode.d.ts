@@ -1,0 +1,1 @@
+type AppMode = 'light' | 'dark';
