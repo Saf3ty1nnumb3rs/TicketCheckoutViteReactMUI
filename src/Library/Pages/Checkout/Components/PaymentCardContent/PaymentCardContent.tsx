@@ -21,7 +21,7 @@ import { FormattedMessage } from 'react-intl';
 import * as Yup from 'yup';
 import { usePaymentContext } from 'Library/Contexts/Payment';
 import { dayjs } from 'Library/Utils/dates';
-import { AddCardForm } from './AddCardForm';
+import { AddCardForm } from './Components/AddCardForm';
 import { useToast } from 'Library/Hooks/useToast/useToast';
 
 const PaymentCardContent = () => {

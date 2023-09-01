@@ -1,6 +1,6 @@
 import { Box, Card, Grid, Stack, Typography } from '@mui/material';
 import Brody from 'Library/Images/Brody.png';
-import TicketList from './Components/TicketList';
+import AvailableTicketList from './Components/AvailableTicketList';
 import { useIntl } from 'react-intl';
 import SelectedTicketList from './Components/SelectedTicketsList';
 import { Page } from 'Library/Components/Page';
@@ -36,7 +36,7 @@ const Home = () => {
               </Typography>
               <Card>
                 <Box height="75vh" overflow="auto">
-                  <TicketList />
+                  <AvailableTicketList />
                 </Box>
               </Card>
             </Stack>
