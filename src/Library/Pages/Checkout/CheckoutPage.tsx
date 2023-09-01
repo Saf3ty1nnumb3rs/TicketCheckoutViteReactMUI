@@ -5,7 +5,7 @@ import { Carlisle } from 'Library/Images';
 import { SectionBox } from './Components/SectionBox';
 import { useIntl } from 'react-intl';
 import { TICKET_DATE_FORMAT } from 'Library/constants';
-import PaymentCardContent from './Components/PaymentCardContent';
+import PaymentCardContent from './Components/PaymentCardContent/PaymentCardContent';
 import { CheckoutTotals } from './Components/CheckoutTotalsContent/CheckoutTotals';
 
 const CheckoutPage = () => {

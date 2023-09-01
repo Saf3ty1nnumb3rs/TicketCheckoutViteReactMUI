@@ -5,7 +5,7 @@ import { availableConcertData } from 'assets/data/availableConcertData';
 import { TICKET_DATE_FORMAT } from 'Library/constants';
 import { useCartContext } from 'Library/Contexts/Cart';
 
-const TicketList: React.FC = () => {
+const AvailableTicketList: React.FC = () => {
   const { cartContents, onCartChange } = useCartContext();
   const handleToggle = (ticket: Ticket) => {
     const isCurrentlySelected = cartContents.some((t) => t.id === ticket.id);
@@ -35,4 +35,4 @@ const TicketList: React.FC = () => {
   );
 };
 
-export default TicketList;
+export default AvailableTicketList;
