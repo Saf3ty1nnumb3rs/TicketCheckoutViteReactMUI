@@ -17,7 +17,7 @@ import {
 } from '@mui/material';
 import { Formik } from 'formik';
 import { useState } from 'react';
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage, useIntl } from 'react-intl';
 import * as Yup from 'yup';
 import { usePaymentContext } from 'Library/Contexts/Payment';
 import { dayjs } from 'Library/Utils/dates';
@@ -28,7 +28,7 @@ const PaymentCardContent = () => {
   const { cards, setCards, selectedCard, setSelectedCard } = usePaymentContext();
   const [openDialog, setOpenDialog] = useState(false);
   const [newCard, setNewCard] = useState<Card>({ cardName: '', last4: '', exp: '' });
-
+  const { formatMessage } = useIntl();
   const { addToast } = useToast();
   // AddCardForm validation schema with Yup
   const CardSchema = Yup.object().shape({
@@ -73,7 +73,7 @@ const PaymentCardContent = () => {
     cards.push({ ...values, id: newCardId });
     setNewCard({ cardName: '', last4: '', exp: '' });
     addToast(
-      'Card added successfully',
+      formatMessage({ id: 'cardAddedSuccessfully'}),
       {
         variant: 'filled',
         severity: 'success',
@@ -104,7 +104,7 @@ const PaymentCardContent = () => {
     );
     setCards(updatedCards);
     addToast(
-      'Card updated successfully',
+      formatMessage({ id: 'cardUpdatedSuccessfully'}),
       {
         variant: 'filled',
         severity: 'info',
@@ -146,10 +146,10 @@ const PaymentCardContent = () => {
             <Divider />
             <CardActions>
               <Button size="small" color="primary" onClick={() => handleEdit(card.id || '')}>
-                Edit{/* intl18  */}
+                {formatMessage({ id: 'edit' })}
               </Button>
               <Button size="small" color="secondary" onClick={() => handleDelete(card.id || '')}>
-                Delete{/* intl18  */}
+              {formatMessage({ id: 'delete' })}
               </Button>
             </CardActions>
           </Card>
@@ -170,11 +170,11 @@ const PaymentCardContent = () => {
           my: '1rem',
         }}
       >
-        Add Payment Method{/* intl18  */}
+        {formatMessage({ id: 'addPaymentMethod' })}
       </Button>
       <Divider />
       <Dialog open={openDialog} onClose={handleCloseDialog}>
-        <DialogTitle>{newCard.id ? 'Edit Card' : 'Add New Card'}</DialogTitle>{/* intl18  */}
+        <DialogTitle>{formatMessage({ id: newCard.id ? 'editCard' : 'addNewCard' })}</DialogTitle>
         <DialogContent
           sx={{
             width: '26.25rem',

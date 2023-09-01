@@ -1,6 +1,7 @@
-import { Box, Button, DialogActions, TextField, Typography } from "@mui/material";
-import { BlueOutlineButton } from "Library/Components/Buttons";
-import { ErrorMessage, Field, Form, useFormikContext } from "formik";
+import { Box, Button, DialogActions, TextField, Typography } from '@mui/material';
+import { BlueOutlineButton } from 'Library/Components/Buttons';
+import { ErrorMessage, Field, Form, useFormikContext } from 'formik';
+import { useIntl } from 'react-intl';
 
 interface AddCardFormProps {
   handleCloseDialog: () => void;
@@ -9,6 +10,7 @@ interface AddCardFormProps {
 
 export const AddCardForm = ({ handleCloseDialog, newCardId }: AddCardFormProps) => {
   const { isSubmitting, isValid } = useFormikContext();
+  const { formatMessage } = useIntl();
   return (
     <Form>
       <Box my="1rem">
@@ -55,7 +57,7 @@ export const AddCardForm = ({ handleCloseDialog, newCardId }: AddCardFormProps) 
           type="submit"
           disabled={isSubmitting || !isValid}
         >
-          {newCardId ? 'Confirm Edit' : 'Add'}{/* intl18  */}
+          {formatMessage({ id: newCardId ? 'confirmEdit' : 'add'})}
         </BlueOutlineButton>
       </DialogActions>
     </Form>
