@@ -154,7 +154,7 @@ export const CheckoutTotals = () => {
         onClick={cancelOrder}
         sx={{ pl: 0, mb: '1rem' }}
       >
-        Cancel Order
+        {formatMessage({ id: 'cancelOrder' })}
       </HoverButton>
       <Typography variant="body1" fontWeight="bold" mb="0.75rem">
         {formatMessage({ id: 'allSalesAreFinalNoRefunds' })}
@@ -166,14 +166,14 @@ export const CheckoutTotals = () => {
         sx={{ width: '100%', mt: '1rem' }}
         onClick={
           () => {
-            addToast('YOU DID IT!!!',{
+            addToast(formatMessage({ id: 'yourOrderHasBeenSubmittedSuccessfully' }),{
               variant: 'filled',
               severity: 'success',
             })
         }}
         disabled={!selectedCard || !cartContents.length || !isTermsSelected}
       >
-        Place Order{/* intl18n */}
+       {formatMessage({ id : 'placeOrder' })}
       </Button>
       <Typography fontSize="0.75rem" fontWeight="bold" mt="0.75rem">
         {formatMessage({ id: 'exceptionsMayApplySeeOurTermsOfUse' })}
