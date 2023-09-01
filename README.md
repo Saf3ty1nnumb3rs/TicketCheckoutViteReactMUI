@@ -1,13 +1,13 @@
 # Ticket Purchasing
 
 This application was made using vite, React, Material UI, with Typescript.
-This application was made using vite, React, Material UI, with Typescript.
 Routing was implemented using React Router DOM.
 Forms were made with Formik. Validation with Yup.
 
 The application is built around a central layout and utilizes a context based state management. You will see within the ProviderWrapper and the AppLayout a series of nested components and providers that wraps the core of the application and makes various state objects available throughout the application.
 
 Feel free to click around the app.
+
 ## Cloning the Repository
 
 1. **Navigate to the Repo**: Open GitHub and go to the repository you want to clone.
