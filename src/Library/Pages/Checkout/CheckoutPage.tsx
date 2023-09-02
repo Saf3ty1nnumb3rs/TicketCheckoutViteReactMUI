@@ -30,29 +30,16 @@ const CheckoutPage = () => {
           display={{ sm: 'none', md: 'none', lg: 'grid' }}
         >
           <Box
-            display={{
-              xs: 'none',
-              sm: 'none',
-              md: 'flex',
+            component="img"
+            sx={{
+              width: '100%',
+              display: {xs: 'none', sm: 'none', md: 'none', lg: 'block'},
+              my: 'auto',
+              borderRadius: '4px',
             }}
-            flexGrow="1"
-            minHeight="90vh"
-            justifyContent="center"
-          >
-            <Box
-              component="img"
-              sx={{
-                height: '43vw',
-                width: '24vw',
-                display: {xs: 'none', sm: 'none', md: 'none', lg: 'block'},
-                p: '1.5rem',
-                pl: '0',
-                borderRadius: '4px',
-              }}
-              alt="Willi Carlisle Poster image"
-              src={Carlisle}
-            />
-          </Box>
+            alt="Willi Carlisle Poster image"
+            src={Carlisle}
+          />
         </Grid>
         <Grid
           item
